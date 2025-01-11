@@ -1,0 +1,823 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+   --blue:#3498db;
+   --dark-blue:#2980b9;
+   --red:#e74c3c;
+   --dark-red:#c0392b;
+   --black:#333;
+   --white:#fff;
+   --light-bg:#eee;
+   --box-shadow:0 5px 10px rgba(0,0,0,.1);
+}
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border: none;
+   text-decoration: none;
+}
+
+*::-webkit-scrollbar{
+   width: 10px;
+}
+
+*::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color: var(--blue);
+}
+
+.btn,
+.delete-btn{
+   width: 100%;
+   border-radius: 5px;
+   padding:10px 30px;
+   color:var(--white);
+   display: block;
+   text-align: center;
+   cursor: pointer;
+   font-size: 20px;
+   margin-top: 10px;
+}
+
+.btn{
+   background-color: var(--blue);
+}
+
+.btn:hover{
+   background-color: var(--dark-blue);
+}
+
+.delete-btn{
+   background-color: var(--red);
+}
+
+.delete-btn:hover{
+   background-color: var(--dark-red);
+}
+
+.message{
+   margin:10px 0;
+   width: 100%;
+   border-radius: 5px;
+   padding:10px;
+   text-align: center;
+   background-color: var(--red);
+   color:var(--white);
+   font-size: 20px;
+}
+
+.form-container{
+   min-height: 100vh;
+   background-color: var(--light-bg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+}
+
+.form-container form{
+   padding:20px;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   text-align: center;
+   width: 500px;
+   border-radius: 5px;
+}
+
+.form-container form h3{
+   margin-bottom: 10px;
+   font-size: 30px;
+   color:var(--black);
+   text-transform: uppercase;
+}
+
+.form-container form .box{
+   width: 100%;
+   border-radius: 5px;
+   padding:12px 14px;
+   font-size: 18px;
+   color:var(--black);
+   margin:10px 0;
+   background-color: var(--light-bg);
+}
+
+.form-container form p{
+   margin-top: 15px;
+   font-size: 20px;
+   color:var(--black);
+}
+
+.form-container form p a{
+   color:var(--red);
+}
+
+.form-container form p a:hover{
+   text-decoration: underline;
+}
+
+.container{
+   min-height: 100vh;
+   background-color: var(--light-bg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+}
+
+.container .profile{
+   padding:20px;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   text-align: center;
+   width: 400px;
+   border-radius: 5px;
+}
+
+.container .profile img{
+   height: 150px;
+   width: 150px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: 5px;
+}
+
+.container .profile h3{
+   margin:5px 0;
+   font-size: 20px;
+   color:var(--black);
+}
+
+.container .profile p{
+   margin-top: 20px;
+   color:var(--black);
+   font-size: 20px;
+}
+
+.container .profile p a{
+   color:var(--red);
+}
+
+.container .profile p a:hover{
+   text-decoration: underline;
+}
+
+.update-profile{
+   min-height: 100vh;
+   background-color: var(--light-bg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding:20px;
+}
+
+.update-profile form{
+   padding:20px;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   text-align: center;
+   width: 700px;
+   text-align: center;
+   border-radius: 5px;
+}
+
+.update-profile form img{
+   height: 200px;
+   width: 200p;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: 5px;
+}
+
+.update-profile form .flex{
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+   gap:15px;
+}
+
+.update-profile form .flex .inputBox{
+   width: 49%;
+}
+
+.update-profile form .flex .inputBox span{
+   text-align: left;
+   display: block;
+   margin-top: 15px;
+   font-size: 17px;
+   color:var(--black);
+}
+
+.update-profile form .flex .inputBox .box{
+   width: 100%;
+   border-radius: 5px;
+   background-color: var(--light-bg);
+   padding:12px 14px;
+   font-size: 17px;
+   color:var(--black);
+   margin-top: 10px;
+}
+
+@media (max-width:650px){
+   .update-profile form .flex{
+      flex-wrap: wrap;
+      gap:0;
+   }
+   .update-profile form .flex .inputBox{
+      width: 100%;
+   }
+}
+.chat-container {
+   max-width: 800px;
+   margin: 50px auto;
+   padding: 10px;
+   background-color: #cdbcce;
+   border-radius: 10px;
+   box-shadow: 0 4px 10px rgba(145, 59, 59, 0.1);
+} 
+/* Chat container styling */
+
+
+/* Profile section styling - stick to the top-left */
+.profile-section {
+   display: flex;
+   align-items: center;
+   position: fixed; /* Changed to fixed for better responsiveness across screen sizes */
+   top: 7px;
+   left: 4px;
+   background-color: hwb(296 87% 7%);
+   padding: 2px 5px;
+   border-radius: 50px;
+   border: 3px solid rgb(152, 27, 190);
+   box-shadow: 0 2px 5px rgba(3, 1, 14, 0.1);
+   z-index: 1000; /* Ensure it stays above other elements */
+   max-width: 100%; /* Ensures it fits within the screen */
+}
+
+/* Profile icon styling */
+.profile-icon {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   overflow: hidden;
+   margin-right: 10px;
+}
+
+/* Profile picture styling */
+.profile-pic {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 50%;
+   border: 3px solid hsl(262, 77%, 31%); /* Green border around profile picture */
+}
+
+/* Welcome text styling */
+.profile-section h4 {
+   font-size: 1rem;
+   font-weight: 700;
+   color: hwb(272 11% 38%);
+   margin: 0;
+}
+
+/* Responsive adjustments for mobile and smaller screens */
+@media (max-width: 768px) {
+    .profile-section {
+        top: 5px;  /* Adjust position for smaller screens */
+        left: 5px;
+        padding: 1px 4px;
+    }
+
+    .profile-icon {
+        width: 45px;  /* Slightly smaller profile icon */
+        height: 45px;
+    }
+
+    .profile-section h4 {
+        font-size: 0.9rem;  /* Reduce font size slightly for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-section {
+        top: 3px; /* Further adjust for extra small screens */
+        left: 3px;
+        padding: 0px 2px;
+    }
+
+    .profile-icon {
+        width: 40px;  /* Further reduce icon size */
+        height: 40px;
+    }
+
+    .profile-section h4 {
+        font-size: 0.8rem;  /* Smaller font for extra small screens */
+    }
+}
+
+
+/* Search bar container styling */
+.search-bar {
+   position: fixed;
+   top: 10px; /* Move down slightly */
+   left: 260px; /* Move to the left */
+   right: 20px; /* Ensure space on the right side */
+   z-index: 1000; /* Ensure it stays above other elements */
+   width: 50%; /* Reduced width of the search bar */
+   max-width: 800px; /* Maximum width for larger screens */
+}
+
+/* Search bar input styling */
+.search-bar input {
+   width: 100%; /* Full width of the container */
+   padding: 8px; /* Reduced padding */
+   font-size: 18px; /* Reduced font size */
+   background-color: hwb(271 65% 25%);
+   border-radius: 50px;
+   border: 4px solid hwb(272 11% 38%); /* Adjusted border width */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-bar {
+        top: 60px; /* Adjust top position for smaller screens */
+        left: 10px; /* Move closer to the left edge */
+        right: 10px; /* Adjust space on the right */
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .search-bar input {
+        font-size: 16px; /* Smaller font size for better fit */
+        padding: 6px; /* Smaller padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        top: 60px; /* Further adjust top position for extra small screens */
+        left: 10px; /* Adjust left position */
+        right: 10px; /* Adjust space on the right */
+        width: 95%; /* Almost full width for extra small screens */
+    }
+
+    .search-bar input {
+        font-size: 14px; /* Smaller font size */
+        padding: 4px; /* Smaller padding */
+    }
+}
+
+
+.chat-area {
+   margin-top: 70px;
+   margin-left: 0px;
+   
+
+}
+#searchResults {
+   margin-top: 20px;
+  
+
+   
+}
+
+.user {
+   padding: 10px;
+   cursor: pointer;
+   background-color: hsl(298, 52%, 37%);
+   border-radius: 5px;
+   margin-top: 5px;
+}
+
+.user:hover {
+   background-color: #dddce6;
+}
+
+/* User chat container styling */
+.user-chat-container {
+   display: flex;
+   height: 100vh;
+}
+
+.user-list {
+   width: 25%;
+   background-color: var(--light-bg);
+   padding: 20px;
+   box-shadow: var(--box-shadow);
+   overflow-y: auto;
+}
+
+.user-item {
+   padding: 10px;
+   cursor: pointer;
+   background-color: #f1f1f1;
+   border-radius: 5px;
+   margin-bottom: 5px;
+}
+
+.user-item:hover {
+   background-color: rgb(26, 200, 231);
+}
+
+/* Chat content styling */
+.chat-content {
+   width: 75%;
+   padding: 40px;
+}
+
+/* Chat history scrollable area */
+#chatHistory {
+   height: calc(100vh - 60px); /* Adjust as needed */
+   overflow-y: auto;
+}
+
+
+/* Message input field */
+#messageInput {
+   width: calc(100% - 70px);
+   padding: 10px 20px;
+   border-radius: 10px;
+   border: 2px solid #680964;
+   
+   position: relative; /* Add this */
+
+}
+
+/* Send message button */
+#sendMessage {
+   padding: 10px 15px;
+   background-color: hsl(258, 89%, 51%);
+   color: white;
+   border: none;
+   
+   border-radius: 20px;
+   cursor: pointer;
+   position: relative; /* Add this */
+}
+
+/* General message styling */
+.message {
+   margin-bottom: 20px;
+   padding: 10px; /* Ensure there’s padding for text inside messages */
+   border-radius: 10px;
+   width: fit-content;
+   height: fit-content;
+   
+
+   max-width: 80%; /* Limit the width for readability */
+   position: relative; /* For positioning time */
+}
+
+
+
+
+/* Date divider styling */
+.date-divider {
+   text-align: center;
+   margin: 10px 0;
+   font-size: 12px;
+   color: #6c0968;
+   width: fit-content;
+   height: fit-content;
+
+   padding: 5px;
+   background-color: #3575bf;
+   border-radius: 50px;
+}
+
+/* Message time styling */
+.timestamp {
+   font-size: 10px;
+   color: #5923a0;
+   display: block;
+   margin-top: 5px;
+}
+
+/* Back section styling */
+.back-section {
+   position: fixed;
+   bottom: 20px; /* Adjusted for mobile */
+   left: 20px;   /* Adjusted for mobile */
+   z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.back-section a {
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: #5f16c4; /* Button background color */
+   color: white;
+   text-decoration: none;
+   border-radius: 50px; /* Rounded corners */
+   font-family: 'Poppins', sans-serif; /* Font style */
+   font-size: 16px; /* Make text size responsive */
+}
+
+.back-section a:hover {
+   background-color: #8c0dc3; /* Darken on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+   .back-section {
+       bottom: 15px;  /* Slightly higher for small screens */
+       left: 150px;    /* Slightly more margin on small screens */
+   }
+   
+   .back-section a {
+       font-size: 14px;  /* Smaller font for smaller screens */
+       padding: 8px 15px; /* Adjust button padding for smaller screens */
+   }
+}
+
+@media (max-width: 480px) {
+   .back-section {
+       bottom: 100px;  /* Even higher on extra small screens */
+       left:10px;    /* Reduced margin */
+   }
+   
+   .back-section a {
+       font-size: 12px;  /* Further reduce font size */
+       padding: 6px 10px; /* Smaller padding */
+   }
+}
+
+.recent-chats {
+   margin-top: 20px;
+}
+
+.recent-chat-item {
+   display: flex;
+   align-items: center;
+   padding: 10px;
+   border-bottom: 1px solid #eee;
+}
+
+.recent-chat-item a {
+   display: flex;
+   align-items: center;
+   text-decoration: none;
+   color: #333;
+   width: 100%;
+}
+
+.chat-avatar {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   margin-right: 10px;
+}
+
+.chat-name {
+   flex-grow: 1;
+}
+
+.last-message-time {
+   font-size: 0.8em;
+   color: #888;
+}
+.message-info {
+   font-size: 0.75em;
+   color: #999;
+   text-align: right;
+}
+
+.message-time {
+   margin-right: 5px;
+}
+
+.message-date {
+   font-style: italic;
+}
+.delete-chat {
+   background-color: #a52469;
+   color: white;
+   border: none;
+   padding: 5px 10px;
+   cursor: pointer;
+   margin-left: 10px;
+   border-radius: 5px;
+}
+
+.delete-chat:hover {
+   background-color: #6a1367;
+}
+#clearSearchHistory {
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: #6c2496; /* Red color */
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   transition: background-color 0.3s ease;
+}
+
+#clearSearchHistory:hover {
+   background-color: #1d204b; /* Darker red on hover */
+}
+
+#clearSearchHistory:active {
+   background-color: #62149a; /* Even darker red when clicked */
+}
+
+@media (max-width: 600px) {
+   #clearSearchHistory {
+       width: 40%; /* Full width on smaller screens */
+   }
+}
+/* Styling for the search history list */
+#searchHistoryList {
+   list-style-type: none; /* Remove bullet points */
+   padding: 10px; /* Add some padding */
+   background-color: hsl(270, 4%, 90%); /* Light background color */
+   border-radius: 10px; /* Rounded corners for the entire list */
+   max-height: 200px; /* Limit height for scrollability */
+   overflow-y: auto; /* Enable scrolling if list gets too long */
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+   margin-top: 10px; /* Add space above the list */
+}
+
+/* Individual list items */
+#searchHistoryList li {
+   padding: 10px 15px; /* Space around each item */
+   margin-bottom: 5px; /* Space between items */
+   background-color: hsl(296, 82%, 39%); /* Slightly lighter background for items */
+   border: 1px solid hsl(281, 76%, 25%); /* Light border for separation */
+   border-radius: 5px; /* Slightly rounded corners */
+   cursor: pointer; /* Change cursor to pointer */
+   transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for list items */
+#searchHistoryList li:hover {
+   background-color: hsl(293, 72%, 39%); /* Darker shade on hover */
+}
+
+/* Text styling for search items */
+#searchHistoryList li span {
+   font-size: 16px; /* Adjust font size */
+   color: hsl(240, 15%, 30%); /* Text color */
+}
+
+/* Add focus effect for accessibility */
+#searchHistoryList li:focus {
+   outline: 2px solid hsl(240, 50%, 70%); /* Add outline when focused */
+   background-color: hsl(300, 67%, 44%); /* Slight color change on focus */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+   #searchHistoryList {
+       max-height: 150px; /* Smaller height for mobile */
+   }
+   
+   #searchHistoryList li {
+       padding: 8px 12px; /* Adjust padding for smaller screens */
+   }
+}
+
+
+.chat-container7 {
+   width: calc(100% - 200px); /* Full width minus 50px margin on the left */
+   margin-left: 200px; /* 50px margin on the left */
+   margin-right: 20px; /* No margin on the right to extend to the edge */
+   padding: 10px;
+   background-color: #cdbcce;
+   border-radius: 10px;
+   overflow-y: auto; /* Allow vertical scrolling if needed */
+   max-height: 97vh; /* Limit height for better usability */
+   box-shadow: 0 4px 10px rgba(145, 59, 59, 0.1);
+   box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+@media (max-width: 768px) {
+   .chat-container7 {
+       margin-left:20px;
+       overflow-y: auto; /* Allow vertical scrolling if needed */
+       max-height: 97vh;
+       margin-right: 20px; /* Reduced left margin for smaller devices */
+       width: calc(100% - 20px); /* Adjust width for smaller margins */
+   }
+}
+
+@media (max-width: 480px) {
+   .chat-container7 {
+      
+       margin-right: 10px; /* Further reduced left margin for mobile devices */
+       width: calc(100% - 10px); /* Adjust width for mobile margins */
+   }
+}
+/* Base styles for all devices */
+.sent {
+   background-color: hwb(298 10% 25%); /* Darker shade for sent messages */
+   color: white; /* White text for contrast */
+   text-align: right; /* Align text to the right */
+   margin-left: auto; /* Align sent messages to the right */
+   border: 1px solid rgb(195, 16, 222); /* Optional: border for visual separation */
+   border-radius: 10px; /* Rounded corners with specific value */
+   padding: 10px; /* Optional: add padding for better spacing */
+   max-width: 80%; /* Optional: limit the width to avoid overflow */
+}
+
+.received {
+   background-color: hwb(197 20% 20%); /* Lighter shade for received messages */
+   color: white; /* Darker text for readability */
+   text-align: left; /* Align text to the left */
+   margin-right: auto; /* Align received messages to the left */
+   border: 1px solid hwb(240 20% 45%); /* Border to differentiate received messages */
+   border-radius: 10px 10px 10px 0; /* Rounded corners with a specific value */
+   padding: 10px; /* Optional: add padding for better spacing */
+   max-width: 80%; /* Optional: limit the width to avoid overflow */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 600px) {
+   .sent, .received {
+      font-size: 0.8em; /* Reduce text size for smaller screens */
+      padding: 8px; /* Adjust padding for better spacing */
+      max-width: 90%; /* Increase max-width to utilize available space */
+   }
+}
+
+@media (max-width: 400px) {
+   .sent, .received {
+      font-size: 0.7em; /* Further reduce text size for very small screens */
+      padding: 6px; /* Further adjust padding */
+      max-width: 95%; /* Increase max-width to fit small screens */
+   }
+}
+/* Base styles for the floating button */
+/* Base styles for the floating button */
+#floatButton {
+   position: fixed;
+   top: 400px; /* Adjust as needed */
+   left: 10px; /* Keeps the button aligned to the left side */
+   background-color: #362680;
+   color: white;
+   border: 1px solid rgb(142, 14, 146); /* Added border style */
+   padding: 10px 15px; /* Added padding for better spacing */
+   border-radius: 40px;
+   cursor: pointer;
+   z-index: 1000;
+   font-size: 14px; /* Adjusted font size for better visibility */
+   text-align: center;
+}
+
+#floatButton:hover {
+   background-color: #1515d2;
+}
+
+/* Responsive styles for tablets and smaller screens */
+@media (max-width: 768px) {
+   #floatButton {
+      top: 300px; /* Adjust top position for tablets */
+      left: 5px; /* Adjust left position for tablets */
+      padding: 8px 12px; /* Adjust padding for better fit */
+      font-size: 12px; /* Reduce font size for tablets */
+   }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+   #floatButton {
+      top: 100px; /* Adjust top position for very small screens */
+      left: 7px; /* Align with screen edge for very small screens */
+      padding: 8px 10px; /* Adjust padding for very small screens */
+      font-size: 10px; /* Further reduce font size for small screens */
+   }
+}
+.unread-count {
+   background-color: #ff4444;
+   color: white;
+   border-radius: 50%;
+   padding: 2px 6px;
+   font-size: 12px;
+   margin-left: 5px;
+}
+.btn {
+   margin: 10px 0;
+   padding: 10px 20px;
+   background-color: #3498db;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.btn:hover {
+   background-color: #2980b9;
+}
+
+.inputBox {
+   margin: 15px;
+   padding: 15px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+}
+
+
+

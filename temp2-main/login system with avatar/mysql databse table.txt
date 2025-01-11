@@ -1,0 +1,65 @@
+step 1 :- 
+create databse in phpmyadmin
+
+step 2 :-
+
+click on create table and then select sql on the top and copy and paste below code in the query.
+
+
+
+
+
+
+
+
+
+CREATE TABLE `user_form` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4
+
+
+
+// messe cont login code in userchat.
+$user_id = $_SESSION['user_id'];
+$chat_user_id = $_GET['user_id'];
+
+// Mark messages as read where current user is the recipient
+$mark_read_query = "UPDATE chat_messages SET is_read = 1 WHERE user1_id = ? AND user2_id = ? AND is_read = 0";
+$stmt = $conn->prepare($mark_read_query);
+$stmt->bind_param("ii", $chat_user_id, $user_id);
+$stmt->execute();
+$stmt->close();
+
+
+
+||update databse\
+data base name  user_db
+
+CREATE TABLE `user_form` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(150) NOT NULL UNIQUE,
+    `password` VARCHAR(255) NOT NULL,
+    `image` VARCHAR(255) DEFAULT NULL,
+    `security_key` VARCHAR(255) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE `chat_messages` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `user1_id` INT NOT NULL,
+    `user2_id` INT NOT NULL,
+    `message` TEXT NOT NULL,
+    `sender_id` INT NOT NULL,
+    `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `is_read` BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (`user1_id`) REFERENCES `user_form`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`user2_id`) REFERENCES `user_form`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`sender_id`) REFERENCES `user_form`(`id`) ON DELETE CASCADE
+);
+
